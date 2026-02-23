@@ -115,49 +115,6 @@ void PauseTwist() {
 	}
 }
 
-bool RGMercsControl::IsRunning() {
-	return ci_starts_with(gszMacroName, "rgmercs");
-}
-
-void RGMercsControl::Pause() {
-	boxrRunCommandf("/mqp on");
-	PauseTwist();
-}
-
-void RGMercsControl::Unpause() {
-	boxrRunCommandf("/mqp off");
-}
-
-void RGMercsControl::Chase() {
-	boxrRunCommandf("/rg chaseon");
-}
-
-void RGMercsControl::Camp() {
-	boxrRunCommandf("/rg camphard");
-}
-
-void RGMercsControl::Manual() {
-	boxrRunCommandf("/rg chaseoff");
-	boxrRunCommandf(MACRO_COMMAND_DELAY "/rg campoff");
-}
-
-void RGMercsControl::BurnNow() {
-	LOGGER.info("BurnNow is not supported for rgmercs");
-}
-
-void RGMercsControl::BurnOff() {
-	LOGGER.info("BurnOff is not supported for rgmercs");
-}
-
-void RGMercsControl::BurnNamed() {
-	LOGGER.info("BurnNamed is not supported for rgmercs");
-}
-
-void RGMercsControl::SetRaidAssistNum(int raidAssistNum) {
-	boxrRunCommandf("/rg AssistOutside 1");
-	boxrRunCommandf(MACRO_COMMAND_DELAY "/rg OutsideAssistList {}", GetRaidMainAssistName(raidAssistNum));
-}
-
 bool RGMercsLuaControl::IsRunning() {
 	return EvaluateBooleanMacroExpression("${Lua.Script[rgmercs].Status.Equal[RUNNING]}");
 }
