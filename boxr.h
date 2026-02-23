@@ -45,23 +45,6 @@ public:
 	virtual ~BoxControl() = default;
 };
 
-class RGMercsControl : public BoxControl {
-public:
-	const char* GetKey() override { return "rgmercs"; }
-	const char* GetName() override { return "rgmercs"; }
-	bool IsRunning() override;
-	void Pause() override;
-	void Unpause() override;
-	void Chase() override;
-	void Camp() override;
-	void Manual() override;
-	void BurnNow() override;
-	void BurnOff() override;
-	void BurnNamed() override;
-	void SetRaidAssistNum(int raidAssistNum) override;
-	inline std::string GetPauseQuery() { return MACRO_PAUSED_QUERY; }
-};
-
 class RGMercsLuaControl : public BoxControl {
 public:
 	const char* GetKey() override { return "rgmercs.lua"; }
