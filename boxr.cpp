@@ -89,7 +89,6 @@ std::string MasterBoxControl::Current() {
 MasterBoxControl::MasterBoxControl() {
 	// Assume that if a macro is running, it is controlling the character, even if
 	// a the class's CWTN plugin is loaded (since otherwise, why start the macro?)
-	boxes.push_back(std::make_shared<RGMercsControl>());
 	boxes.push_back(std::make_shared<KissAssistControl>());
 	boxes.push_back(std::make_shared<MuleAssistControl>());
 	boxes.push_back(std::make_shared<EntropyControl>());
